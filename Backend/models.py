@@ -10,8 +10,8 @@ from database import Base
 class Piece(Base):
     __tablename__ = "pieces"
     __table_args__ = (
-        CheckConstraint("stock >= 0", name="ck_pieces_stock_non_negative"),
-        CheckConstraint("price > 0", name="ck_pieces_price_positive"),
+        CheckConstraint("stock >= 0", name="stock_non_negative"),
+        CheckConstraint("price > 0", name="price_positive"),
     )
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -44,7 +44,7 @@ class Order(Base):
 class OrderLine(Base):
     __tablename__ = "order_lines"
     __table_args__ = (
-        CheckConstraint("quantity > 0", name="ck_order_lines_quantity_positive"),
+        CheckConstraint("quantity > 0", name="quantity_positive"),
     )
 
     id: Mapped[int] = mapped_column(primary_key=True)
