@@ -29,7 +29,7 @@ class Client(Base):
     hashed_password: Mapped[str] = mapped_column(String)
     first_name: Mapped[str] = mapped_column(String)
     last_name: Mapped[str] = mapped_column(String)
-    role: Mapped[str] = mapped_column(String, default="user")
+    role: Mapped[str] = mapped_column(String, default="client")
 
 
 class Order(Base):

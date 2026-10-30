@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from typing import Annotated
 from models import Piece
 from schemas.pieces import CreatePiece, UpdatePiece, ReadPiece
+from routers.auth import require_admin
 
 
 router = APIRouter(prefix="/pieces", tags=["pieces"])
@@ -44,7 +45,12 @@ def read_piece(piece_id: int, db: db_dependency):
     "",
     response_model=ReadPiece,
     status_code=status.HTTP_201_CREATED,
-    responses={409: {"description": "Reference already exists"}},
+    dependencies=[Depends(require_admin)],
+    responses={
+        401: {"description": "Not authenticated"},
+        403: {"description": "Admin role required"},
+        409: {"description": "Reference already exists"},
+    },
 )
 def create_piece(payload: CreatePiece, db: db_dependency):
     piece = Piece(**payload.model_dump())
@@ -62,7 +68,10 @@ def create_piece(payload: CreatePiece, db: db_dependency):
 @router.patch(
     "/{piece_id}",
     response_model=ReadPiece,
+    dependencies=[Depends(require_admin)],
     responses={
+        401: {"description": "Not authenticated"},
+        403: {"description": "Admin role required"},
         404: {"description": "Piece not found"},
         409: {"description": "Reference already exists"},
     },
