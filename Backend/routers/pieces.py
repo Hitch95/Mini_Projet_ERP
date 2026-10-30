@@ -5,7 +5,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from typing import Annotated
 from models import Piece
-from schemas import CreatePiece, UpdatePiece, ReadPiece
+from schemas.pieces import CreatePiece, UpdatePiece, ReadPiece
 
 
 router = APIRouter(prefix="/pieces", tags=["pieces"])
