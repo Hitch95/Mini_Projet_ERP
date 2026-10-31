@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ROUTE_NAMES } from '../router/route-names'
+import { ROUTE_NAMES } from '@/router/route-names'
 </script>
 
 <template>

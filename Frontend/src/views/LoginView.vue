@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRoute, useRouter, RouterLink } from 'vue-router'
-import { ROUTE_NAMES } from '../router/route-names'
-import { login } from '../services/auth'
+import { useRoute, useRouter } from 'vue-router'
+import { ROUTE_NAMES } from '@/router/route-names'
+import { login } from '@/core/services/auth'
 import Button from '@/components/ui/button/Button.vue'
 import Input from '@/components/ui/input/Input.vue'
 

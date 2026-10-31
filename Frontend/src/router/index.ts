@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { routes } from './route'
-import { registerGuards } from './guards'
+import { routes } from '@/router/route'
+import { registerGuards } from '@/router/guards'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

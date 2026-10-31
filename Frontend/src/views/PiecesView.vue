@@ -1,16 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { API_URL } from '../services/api'
+import { API_URL } from '@/core/services/api'
+import { type ReadPiece } from '@/core/types/piece.type'
 
-interface Piece {
-  id: number
-  reference: string
-  name: string
-  price: string
-  stock: number
-}
-
-const pieces = ref<Piece[]>([])
+const pieces = ref<ReadPiece[]>([])
 const error = ref('')
 
 onMounted(async () => {

@@ -10,7 +10,9 @@
     "skipLibCheck": true,
     "module": "esnext",
     "moduleDetection": "force",
+    "moduleResolution": "bundler",
     "noEmit": true,
+    "noUncheckedIndexedAccess": true,
 
     /* Linting */
     "noUnusedLocals": true,

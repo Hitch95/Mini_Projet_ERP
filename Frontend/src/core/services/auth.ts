@@ -1,5 +1,5 @@
 import { computed, ref } from 'vue'
-import { API_URL } from '@/services/api'
+import { API_URL } from '@/core/services/api'
 
 const token = ref<string | null>(localStorage.getItem('token'))
 
